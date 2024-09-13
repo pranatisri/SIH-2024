@@ -1,43 +1,46 @@
 extends Node
 
+#Preloads
+const wheat_seed = preload("res://objects/crops/wheat.tscn")
+const pumpkin_seed = preload("res://objects/crops/pumpkin.tscn")
 
+# Signals
 signal coins_change
-signal digs_change
 signal wheat_count_change
 signal pumpkin_count_change
 signal water_level_change
 signal fertilized_tiles_number_change
-signal fertilizer_count_change
-signal drip_pipes_count_change
+signal is_raining()
+signal weather_status_changed()
+signal util_count_changed
+signal curr_mode_changed
+signal moat_water_level_changed
+# Variables
 
-var water_available: bool = true
-var coins: int:
+var coins: int = 500: 
 	set(value):
 		coins = value
-		emit_signal("coins_change")		
-var digs: int:
-	set(value):
-		if coins >= 1:
-			digs = value
-			coins -= 1
-			emit_signal("digs_change")		
-		else:
-			digs = value	
+		coins_change.emit()	
+		
 var water_level: int:
 	set(value):
-		if value >= 0:
-			water_level = value
+		if value > 100:
+			water_level = 100
+		elif value >= 0:
+			water_level = value	
 		else:
-			value = 0
-		emit_signal("water_level_change")				
+			if value > water_level:
+				water_level = 1
+			water_level = 0
+		water_level_change.emit()				
 var wheat_count: int:
 	set(value):
 		wheat_count = value
-		emit_signal("wheat_count_change")							
+		wheat_count_change.emit()							
 var pumpkin_count: int:
 	set(value):
 		pumpkin_count = value
-		emit_signal("pumpkin_count_change")
+		pumpkin_count_change.emit()
 var crop_count: int:
 	get():
 		crop_count += 1
@@ -45,12 +48,31 @@ var crop_count: int:
 var fertilized_tiles: int:
 	set(value):
 		fertilized_tiles = value
-		emit_signal("fertilized_tiles_number_change")
-var fertilizer_count: int:
+		fertilized_tiles_number_change.emit()
+var dugged_holes_count= 0
+var curr_seed = wheat_seed
+var curr_util: int = 0# fertilizer:0, pipe:1, shovel:2
+var util_count = [0,0,0]: 
 	set(value):
-		fertilizer_count = value
-		emit_signal("fertilizer_count_change")
-var drip_pipes_count: int:
+		util_count = value
+		util_count_changed.emit()
+var curr_mode = 0: # 0:plant 1:util
 	set(value):
-		drip_pipes_count = value
-		emit_signal("drip_pipes_count_change")
+		curr_mode = value
+		curr_mode_changed.emit()
+var moat_water_level = 100:
+	set(value):
+		if value < 0 :
+			moat_water_level = 0
+		else:
+			moat_water_level = value
+		moat_water_level_changed.emit()			
+#Weather and land
+var rain_type : String: # "none" , "light" , "medium" , "heavy", "storm"
+	set(type):
+		rain_type = type
+		is_raining.emit()
+var weather_status : String: #idle wetting extreme_sunny flooding
+	set(status):
+		weather_status = status
+		weather_status_changed.emit()

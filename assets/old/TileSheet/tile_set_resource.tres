@@ -1,12 +1,9 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cyd8d8sjcq5uu"]
-
-[ext_resource type="Texture2D" uid="uid://cbcjukenqun7m" path="res://assets/TileSheet/tileset.png" id="1_nwga3"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cyd8d8sjcq5uu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_oqrau"]
 tile_data = PackedInt32Array(0, 1048576, 1, 65536, 983040, 1, 131072, 1048576, 1, 196608, 983040, 1, 262144, 1048576, 1, 327680, 983040, 1, 393216, 1048576, 1, 458752, 983040, 1, 524288, 1048576, 1, 589824, 983040, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkvgo"]
-texture = ExtResource("1_nwga3")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0

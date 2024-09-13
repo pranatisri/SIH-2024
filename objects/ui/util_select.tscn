@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://couiodurnv7v6"]
+
+[ext_resource type="Script" path="res://objects/ui/util_select.gd" id="1_sly4e"]
+[ext_resource type="Texture2D" uid="uid://bb8j1f1e4qhae" path="res://assets/old/icons/fertilizer.png" id="2_8f54d"]
+[ext_resource type="Texture2D" uid="uid://c6kqym4yc3lgo" path="res://assets/old/icons/pipe.png" id="3_ryl0j"]
+[ext_resource type="Texture2D" uid="uid://ct7bfjnjkn8uc" path="res://assets/old/icons/shovel.png" id="4_l5msg"]
+
+[node name="UtilSelect" type="HBoxContainer"]
+offset_right = 106.0
+offset_bottom = 32.0
+script = ExtResource("1_sly4e")
+
+[node name="CurrentUtilContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentUtilSprite" type="TextureRect" parent="CurrentUtilContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("2_8f54d")
+
+[node name="CurrentUtilCountLabel" type="Label" parent="CurrentUtilContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="SelectUtilButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.5
+text = ">"
+
+[node name="UtilSelectContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FertilizerButton" type="Button" parent="UtilSelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_8f54d")
+
+[node name="PipeButton" type="Button" parent="UtilSelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_ryl0j")
+
+[node name="ShovelButtin" type="Button" parent="UtilSelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("4_l5msg")

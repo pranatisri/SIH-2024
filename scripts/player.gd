@@ -1,20 +1,18 @@
 extends CharacterBody2D
 
+# Reference(s)
 @onready var player_sprite = $AnimatedSprite2D
-signal plant_seed
 
+
+#Variables
 var direction = Vector2.ZERO
 const SPEED = 150
-
 
 func _physics_process(_delta):
 	handle_movement()
 	move_and_slide()	
 	
-func handle_movement():
-	if Input.is_action_just_pressed("PlantSeed"):
-		emit_signal("plant_seed")
-		
+func handle_movement():	
 	if Input.is_action_pressed("MoveUp"):
 		player_sprite.play("walk_back")
 		direction = Vector2.UP
