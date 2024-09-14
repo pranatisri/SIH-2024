@@ -11,10 +11,10 @@ config_version=5
 [application]
 
 config/name="SIH-2024"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://assets/old/Mine/SIH2024-logo.png"
-config/icon="res://icon.svg"
+config/icon="res://icons/icon.svg"
 
 [autoload]
 

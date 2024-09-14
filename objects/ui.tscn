@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://blca3biwujol3"]
 
-[ext_resource type="FontFile" uid="uid://bnvllro27eua7" path="res://Signwood-Regular.ttf" id="1_23bba"]
+[ext_resource type="FontFile" uid="uid://bnvllro27eua7" path="res://assets/UI/Signwood-Regular.ttf" id="1_23bba"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_qo71y"]
 [ext_resource type="Texture2D" uid="uid://1w8x8ontal3w" path="res://UI/Wheat.png" id="2_ihd70"]
 [ext_resource type="Texture2D" uid="uid://csem3f0snrcgb" path="res://UI/16x16pumpkin.png" id="3_1ee12"]
