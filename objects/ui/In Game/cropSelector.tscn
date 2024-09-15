@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bh5msvqjecoyv"]
+[gd_scene format=3 uid="uid://bdagp4aympr8t"]
 
 [node name="CropSelector" type="Control"]
 layout_mode = 3
