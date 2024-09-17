@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=4 uid="uid://b5fitekj1ggnf"]
+[gd_scene load_steps=27 format=4 uid="uid://b5fitekj1ggnf"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_pee8d"]
 [ext_resource type="Texture2D" uid="uid://dujkd8w36fqjk" path="res://assets/old/Mine/pump.png" id="2_hhujn"]
-[ext_resource type="Script" path="res://scripts/pump.gd" id="3_4h7h3"]
+[ext_resource type="Script" path="res://scripts/ui/pump.gd" id="3_4h7h3"]
 [ext_resource type="Texture2D" uid="uid://bwi1sbm8w28su" path="res://assets/old/Mine/water_for_pipe.png" id="4_4itoj"]
 [ext_resource type="Texture2D" uid="uid://cyuvlrutys8ha" path="res://assets/old/TileSheet/tileset.png" id="5_vkmpt"]
 [ext_resource type="Texture2D" uid="uid://bsicd222w6of3" path="res://assets/old/TileSheet/drip.png" id="6_tnqkm"]
@@ -10,12 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://droehy5x1nvmm" path="res://assets/old/TileSheet/fertilized_pipe.png" id="8_x57mu"]
 [ext_resource type="PackedScene" uid="uid://dq8lafjwu7qyu" path="res://objects/player/player.tscn" id="9_o8n6a"]
 [ext_resource type="Texture2D" uid="uid://b8xl614pb16yg" path="res://assets/old/TileSheet/grid_selector.png" id="10_l2bek"]
-[ext_resource type="Script" path="res://scripts/water_handler.gd" id="11_uyaf3"]
+[ext_resource type="Script" path="res://scripts/ui/water_handler.gd" id="11_uyaf3"]
 [ext_resource type="Texture2D" uid="uid://dsax7f3rpjs5w" path="res://icons/icon.svg" id="12_ywkp0"]
 [ext_resource type="Script" path="res://scripts/ui/game_ui_manager.gd" id="13_3yq6t"]
-[ext_resource type="PackedScene" uid="uid://blca3biwujol3" path="res://objects/ui.tscn" id="14_q8vs3"]
-[ext_resource type="PackedScene" uid="uid://b1iw3egpl1ewb" path="res://objects/ui/crop_panel.tscn" id="15_cg6l8"]
-[ext_resource type="PackedScene" uid="uid://couiodurnv7v6" path="res://objects/ui/util_select.tscn" id="16_v51do"]
+[ext_resource type="PackedScene" uid="uid://610r1btkj4hy" path="res://objects/ui/shop.tscn" id="15_cp7p8"]
+[ext_resource type="PackedScene" uid="uid://cahk8jujk4xhf" path="res://objects/ui/In Game/in_game_ui.tscn" id="15_qvk04"]
 [ext_resource type="Script" path="res://scripts/weather/weather_system.gd" id="17_5qcas"]
 [ext_resource type="PackedScene" uid="uid://bkqbpi8jfijcr" path="res://objects/weather_and_land/rain.tscn" id="18_cxroj"]
 
@@ -636,17 +635,16 @@ action = "shop"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("13_3yq6t")
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("14_q8vs3")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-scale = Vector2(2, 2)
-
-[node name="InGame" type="Node" parent="CanvasLayer"]
+[node name="InGame" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MoatWaterLevelBar" type="ProgressBar" parent="CanvasLayer/InGame"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -657,19 +655,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 36
 value = 100.0
 
-[node name="CropPanel" parent="CanvasLayer/InGame" instance=ExtResource("15_cg6l8")]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 125.0
-offset_bottom = 125.0
-
-[node name="UtilSelect" parent="CanvasLayer/InGame" instance=ExtResource("16_v51do")]
-offset_left = 133.0
-offset_top = 15.0
-offset_right = 260.0
-offset_bottom = 106.0
-
 [node name="ModeButton" type="CheckButton" parent="CanvasLayer/InGame"]
+layout_mode = 0
 offset_left = 467.0
 offset_top = 44.0
 offset_right = 701.0
@@ -680,6 +667,7 @@ text = "Plant/util"
 
 [node name="TurnOnPumpButton" type="Button" parent="CanvasLayer/InGame"]
 z_index = 5
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -691,10 +679,17 @@ grow_horizontal = 2
 mouse_default_cursor_shape = 2
 text = "ON"
 
+[node name="InGameUI" parent="CanvasLayer/InGame" instance=ExtResource("15_qvk04")]
+layout_mode = 1
+
+[node name="Shop" parent="CanvasLayer" instance=ExtResource("15_cp7p8")]
+visible = false
+
 [node name="Node" type="Node" parent="."]
 script = ExtResource("17_5qcas")
 
 [node name="Rain" parent="Node" instance=ExtResource("18_cxroj")]
+visible = false
 position = Vector2(-1105, -348)
 
 [node name="wetting" type="Timer" parent="Node"]

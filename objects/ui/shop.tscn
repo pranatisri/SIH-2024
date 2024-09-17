@@ -1,0 +1,302 @@
+[gd_scene load_steps=26 format=3 uid="uid://610r1btkj4hy"]
+
+[ext_resource type="Script" path="res://scripts/ui/shop.gd" id="1_5woxf"]
+[ext_resource type="FontFile" uid="uid://bnvllro27eua7" path="res://assets/UI/Signwood-Regular.ttf" id="2_aexvl"]
+[ext_resource type="Texture2D" uid="uid://bmr71egy50xw7" path="res://assets/old/TileSheet/fetilized.png" id="3_1q7cv"]
+[ext_resource type="Texture2D" uid="uid://bsicd222w6of3" path="res://assets/old/TileSheet/drip.png" id="4_qq7ij"]
+[ext_resource type="Texture2D" uid="uid://c76lu1dh84m11" path="res://UI/DIG_WELL-2.png.png" id="5_bmhnh"]
+[ext_resource type="Texture2D" uid="uid://1w8x8ontal3w" path="res://UI/Wheat.png" id="6_60vr8"]
+[ext_resource type="Texture2D" uid="uid://csem3f0snrcgb" path="res://UI/16x16pumpkin.png" id="7_pohbv"]
+[ext_resource type="Texture2D" uid="uid://bi2fmwhitutch" path="res://UI/coin-1.png.png" id="8_t1tsu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6fcd"]
+bg_color = Color(0.709804, 0.580392, 0.345098, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.477468, 0.331893, 0.064394, 1)
+border_blend = true
+shadow_color = Color(0.717647, 0.537255, 0.34902, 0.447059)
+shadow_size = 6
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ydfkw"]
+font = ExtResource("2_aexvl")
+font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vt6tt"]
+line_spacing = 30.0
+font = ExtResource("2_aexvl")
+font_size = 25
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5p4ip"]
+font = ExtResource("2_aexvl")
+font_size = 25
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuv48"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypomg"]
+bg_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e442"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah74b"]
+bg_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bq8ig"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6isl4"]
+bg_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oo4lm"]
+font = ExtResource("2_aexvl")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_0p6h1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb8x6"]
+bg_color = Color(0.966088, 0.902727, 0.872083, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpou3"]
+bg_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5nua"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtnys"]
+bg_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gk32"]
+line_spacing = 5.0
+font = ExtResource("2_aexvl")
+font_size = 31
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+script = ExtResource("1_5woxf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopPanel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(456, 264)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b6fcd")
+
+[node name="ShopTitleLabel" type="Label" parent="CenterContainer/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.798
+anchor_right = 1.0
+anchor_bottom = 0.178
+offset_left = -351.888
+offset_top = 10.0
+offset_right = -349.0
+offset_bottom = 10.008
+grow_horizontal = 0
+text = "Shop"
+label_settings = SubResource("LabelSettings_ydfkw")
+
+[node name="BuyCenterContainer" type="CenterContainer" parent="CenterContainer/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.371
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 19.056
+offset_right = -12.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UtilVBoxContainer" type="VBoxContainer" parent="CenterContainer/ShopPanel/BuyCenterContainer"]
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer"]
+layout_mode = 2
+text = "#:"
+label_settings = SubResource("LabelSettings_vt6tt")
+
+[node name="FertilizerHBoxContainer" type="HBoxContainer" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="FertilizerAmountLabel" type="Label" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/FertilizerHBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5p4ip")
+
+[node name="BuyFertilizerButton" type="Button" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/FertilizerHBoxContainer"]
+custom_minimum_size = Vector2(183, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aexvl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xuv48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypomg")
+text = "BUY FERTILIZER @ 15/-"
+icon = ExtResource("3_1q7cv")
+
+[node name="DripPipesHBoxContainer" type="HBoxContainer" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="DripPipesAmountLabel" type="Label" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/DripPipesHBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5p4ip")
+
+[node name="BuyDripPipesButton" type="Button" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/DripPipesHBoxContainer"]
+custom_minimum_size = Vector2(183, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aexvl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8e442")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ah74b")
+text = "BUY DRIP PIPES @ 25/-"
+icon = ExtResource("4_qq7ij")
+
+[node name="RecoveryWellHboxContainer" type="HBoxContainer" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="RecoveryWellAmountLabel" type="Label" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/RecoveryWellHboxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5p4ip")
+
+[node name="BuyRecoveryWellButton" type="Button" parent="CenterContainer/ShopPanel/BuyCenterContainer/UtilVBoxContainer/RecoveryWellHboxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aexvl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bq8ig")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6isl4")
+text = "BUY RECOVERY WELLS @ 40/-"
+icon = ExtResource("5_bmhnh")
+
+[node name="CropsHBoxContainer" type="HBoxContainer" parent="CenterContainer/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.710526
+anchor_top = 0.55303
+anchor_right = 0.973684
+anchor_bottom = 0.947152
+offset_bottom = -0.0480042
+metadata/_edit_use_anchors_ = true
+
+[node name="wheat" type="VBoxContainer" parent="CenterContainer/ShopPanel/CropsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="wheat_price" type="Label" parent="CenterContainer/ShopPanel/CropsHBoxContainer/wheat"]
+layout_mode = 2
+text = "@ 1 /-"
+label_settings = SubResource("LabelSettings_oo4lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="wheat_select" type="Button" parent="CenterContainer/ShopPanel/CropsHBoxContainer/wheat"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_0p6h1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sb8x6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mpou3")
+icon = ExtResource("6_60vr8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="wheat_count" type="Label" parent="CenterContainer/ShopPanel/CropsHBoxContainer/wheat"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_oo4lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pumpkin" type="VBoxContainer" parent="CenterContainer/ShopPanel/CropsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pumpkin_price" type="Label" parent="CenterContainer/ShopPanel/CropsHBoxContainer/pumpkin"]
+layout_mode = 2
+text = "@ 1 /-"
+label_settings = SubResource("LabelSettings_oo4lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pumpkin_select" type="Button" parent="CenterContainer/ShopPanel/CropsHBoxContainer/pumpkin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_u5nua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vtnys")
+icon = ExtResource("7_pohbv")
+icon_alignment = 1
+expand_icon = true
+
+[node name="pumpkin_amount" type="Label" parent="CenterContainer/ShopPanel/CropsHBoxContainer/pumpkin"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_oo4lm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coins" type="HBoxContainer" parent="CenterContainer/ShopPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.587719
+anchor_top = 0.0378788
+anchor_right = 0.839912
+anchor_bottom = 0.219697
+scale = Vector2(1.55808, 1.55808)
+metadata/_edit_use_anchors_ = true
+
+[node name="icon" type="TextureRect" parent="CenterContainer/ShopPanel/coins"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("8_t1tsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CoinsAmountLabel" type="Label" parent="CenterContainer/ShopPanel/coins"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ": 500"
+label_settings = SubResource("LabelSettings_5gk32")
+horizontal_alignment = 1
+vertical_alignment = 1
